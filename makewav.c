@@ -1,7 +1,8 @@
-/* makewav.c version 4.1*/
+/* makewav.c */
 /*
 
    Written by Bob Colbert
+   Modified by Curtis F Kaylor 13 March 2017
           
    released to the public domain
           
@@ -20,6 +21,7 @@
 #endif
 #include "makewav.h"
 
+#define VERSION 4.3
 #define WAV_MODE 0
 #define RAW_MODE 1
 
@@ -406,8 +408,9 @@ int processParms(int argc, unsigned char *argv[], struct parmFlags *parms)
 
     if (!parms->binFileCount)
     {
-        printf("\nMakewav 4.2 - February 16, 2002\n");
+        printf("\nMakewav %0.1f - February 16, 2002\n", VERSION);
         printf(" Written By: Bob Colbert (rcolbert1@home.com)\n"); 
+        printf(" Modified By: Curtis F Kaylor (revcurtisp@gmail.com)\n"); 
         printf(" Usage: makewav [flags] singleLd.bin [multiLd1[+multiLd2...+multiLdn]] \n");
         printf(" Flags:\n");
         printf("     -b<MODE> Set bankswitch mode:\n");
