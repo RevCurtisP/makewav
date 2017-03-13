@@ -1,8 +1,8 @@
 /* makewav.c */
 /*
 
-   Written by Bob Colbert
-   Modified by Curtis F Kaylor 13 March 2017
+   Written by Bob Colbert - February 16, 2002 (v4.2)
+   Modified by Curtis F Kaylor  - March 13, 2017
           
    released to the public domain
           
@@ -408,7 +408,7 @@ int processParms(int argc, unsigned char *argv[], struct parmFlags *parms)
 
     if (!parms->binFileCount)
     {
-        printf("\nMakewav %0.1f - February 16, 2002\n", VERSION);
+        printf("\nMakewav %0.1f\n", VERSION);
         printf(" Written By: Bob Colbert (rcolbert1@home.com)\n"); 
         printf(" Modified By: Curtis F Kaylor (revcurtisp@gmail.com)\n"); 
         printf(" Usage: makewav [flags] singleLd.bin [multiLd1[+multiLd2...+multiLdn]] \n");

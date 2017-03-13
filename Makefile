@@ -7,3 +7,4 @@ queue.o:
 
 makewav: queue.o
 	gcc -DLINUX -O queue.o -o makewav makewav.c -lm
+
