@@ -72,10 +72,11 @@ void processByte(unsigned char pByte, int mode)
 
 void getPage(unsigned int page, int display)
 {
+    int bytesRead; //suppress unused-result warning
     if (display)
         printf("%0.2x\b\b",page);
     fseek(binFile,(long) page * 256,SEEK_SET);
-    fread(buffer,256,1,binFile);
+    bytesRead = fread(buffer,256,1,binFile);
 }
 
 unsigned char setVolume(unsigned int amplitude, int volume)
@@ -565,7 +566,8 @@ main(int argc, unsigned char *argv[])
         scflag,
         file_page_count,
         currentBinFile,
-        bytesPerSecond;
+        bytesPerSecond,
+        bytesRead; //suppress unused-result warning
 
     unsigned char 
         controlByte,
@@ -628,7 +630,7 @@ main(int argc, unsigned char *argv[])
         char answer;
 
         fprintf(stderr,"Warning! %d .wav files will be created, Continue? (Y/N)", parms.binFileCount);      
-        scanf("%c",&answer);
+        bytesRead = scanf("%c",&answer);
         if (answer != 'y' && answer != 'Y')
             exit(1);
     }
@@ -676,7 +678,7 @@ main(int argc, unsigned char *argv[])
             fseek(binFile,0,SEEK_END);
             fsize = ftell(binFile);
             fseek(binFile,0,SEEK_SET);
-            fread(fileBuffer,fsize,1,binFile);
+            bytesRead = fread(fileBuffer,fsize,1,binFile);
             if (parms.tflag == 's' && fsize != 8448 && fsize != 6144 && fsize != 2048 && fsize != 4096 && fsize != 32767)
             {
                 printf("Invalid file size for Supercharger, skipping\n"); 
